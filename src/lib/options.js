@@ -1,6 +1,6 @@
 import { BarkType, Billboard, LeafType, TreeType } from './enums';
 
-export default class TreeOptions {
+export class TreeOptions {
   constructor() {
     this.seed = 0;
     this.type = TreeType.Deciduous;

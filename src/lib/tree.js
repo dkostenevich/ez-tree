@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import RNG from './rng';
 import { Branch } from './branch';
 import { Billboard, TreeType } from './enums';
-import TreeOptions from './options';
+import { TreeOptions } from './options';
 import { getBarkTexture, getLeafTexture, loadBarkTextures, loadLeaveTextures } from './textures';
 
 export class Tree extends THREE.Group {
