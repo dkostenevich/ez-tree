@@ -9,6 +9,12 @@
     "textureScale": {
       "x": 1,
       "y": 1
+    },
+    "assets": {
+      "ao": "/assets/bark/birch_ao_1k.jpg",
+      "color": "/assets/bark/birch_color_1k.jpg",
+      "normal": "/assets/bark/birch_normal_1k.jpg",
+      "roughness": "/assets/bark/birch_roughness_1k.jpg"
     }
   },
   "branch": {
@@ -88,6 +94,7 @@
     "size": 3.4782608695652173,
     "sizeVariance": 0.7,
     "tint": 16580390,
-    "alphaTest": 0.5
+    "alphaTest": 0.5,
+    "asset": "/assets/leaves/aspen_color.png"
   }
 }

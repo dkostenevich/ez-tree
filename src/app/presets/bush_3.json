@@ -9,6 +9,12 @@
     "textureScale": {
       "x": 0.5,
       "y": 5
+    },
+    "assets": {
+      "ao": "/assets/bark/oak_ao_1k.jpg",
+      "color": "/assets/bark/oak_color_1k.jpg",
+      "normal": "/assets/bark/oak_normal_1k.jpg",
+      "roughness": "/assets/bark/oak_roughness_1k.jpg"
     }
   },
   "branch": {
@@ -88,6 +94,7 @@
     "size": 3.0434782608695654,
     "sizeVariance": 0.45652173913043476,
     "tint": 10339327,
-    "alphaTest": 0.5
+    "alphaTest": 0.5,
+    "asset": "/assets/leaves/pine_color.png"
   }
 }

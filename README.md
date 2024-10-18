@@ -31,6 +31,14 @@ tree.options.seed = 12345;
 tree.options.trunk.length = 20;
 tree.options.branch.levels = 3;
 
+tree.options.bark.assets.ao = '/assets/bark/oak_ao_1k.jpg';
+tree.options.bark.assets.color = '/assets/bark/oak_color_1k.jpg';
+tree.options.bark.assets.normal = '/assets/bark/oak_normal_1k.jpg';
+tree.options.bark.assets.roughness = '/assets/bark/oak_roughness_1k.jpg';
+tree.options.leaves.asset = '/assets/bark/ash_color.png';
+
+await tree.loadTextures(); // async function
+
 // Generate tree and add to your Three.js scene
 tree.generate();
 scene.add(tree);

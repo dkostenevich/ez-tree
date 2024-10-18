@@ -21,6 +21,13 @@ export default class TreeOptions {
 
       // Scale for the texture
       textureScale: { x: 1, y: 1 },
+
+      assets: {
+        ao: '',
+        color: '',
+        normal: '',
+        roughness: '',
+      }
     };
 
     // Branch parameters
@@ -140,6 +147,9 @@ export default class TreeOptions {
 
       // Controls transparency of leaf texture
       alphaTest: 0.5,
+
+      // asset url
+      asset: ''
     };
   }
 

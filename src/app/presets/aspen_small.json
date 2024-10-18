@@ -1,5 +1,5 @@
 {
-  "seed": 18020,
+  "seed": 36330,
   "type": "deciduous",
   "bark": {
     "type": "birch",
@@ -9,17 +9,23 @@
     "textureScale": {
       "x": 1,
       "y": 1
+    },
+    "assets": {
+      "ao": "/assets/bark/birch_ao_1k.jpg",
+      "color": "/assets/bark/birch_color_1k.jpg",
+      "normal": "/assets/bark/birch_normal_1k.jpg",
+      "roughness": "/assets/bark/birch_roughness_1k.jpg"
     }
   },
   "branch": {
     "levels": 2,
     "angle": {
-      "1": 75,
-      "2": 32,
+      "1": 70,
+      "2": 35,
       "3": 7
     },
     "children": {
-      "0": 10,
+      "0": 4,
       "1": 3,
       "2": 3
     },
@@ -29,22 +35,22 @@
         "y": 1,
         "z": 0
       },
-      "strength": 0.0148
+      "strength": 0.010869565217391311
     },
     "gnarliness": {
-      "0": 0.05,
-      "1": 0.12,
+      "0": 0.04,
+      "1": -0.010000000000000007,
       "2": 0.12,
       "3": 0.02
     },
     "length": {
-      "0": 50,
-      "1": 6.07,
-      "2": 11.19,
+      "0": 23.99,
+      "1": 3.36,
+      "2": 7.699999999999999,
       "3": 1
     },
     "radius": {
-      "0": 0.72,
+      "0": 0.36999999999999994,
       "1": 0.41,
       "2": 0.7,
       "3": 0.7
@@ -62,8 +68,8 @@
       "3": 3
     },
     "start": {
-      "1": 0.59,
-      "2": 0.35,
+      "1": 0.44999999999999996,
+      "2": 0.32999999999999996,
       "3": 0
     },
     "taper": {
@@ -83,11 +89,12 @@
     "type": "aspen",
     "billboard": "double",
     "angle": 30,
-    "count": 11,
-    "start": 0.124,
+    "count": 13,
+    "start": 0.2,
     "size": 2.5,
     "sizeVariance": 0.7,
     "tint": 16775778,
-    "alphaTest": 0.5
+    "alphaTest": 0.5,
+    "asset": "/assets/leaves/aspen_color.png"
   }
 }

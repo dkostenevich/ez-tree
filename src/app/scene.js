@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { Tree, TreePreset } from '@dkostenevich/ez-tree';
+import { Tree } from '@dkostenevich/ez-tree';
 import { Environment } from './environment';
+import { TreePreset } from './presets';
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -42,7 +43,8 @@ export async function createScene(renderer) {
   controls.update();
 
   const tree = new Tree();
-  tree.loadPreset('Ash Medium');
+  await tree.loadFromJson(TreePreset['Ash Medium']);
+
   tree.generate();
   tree.castShadow = true;
   tree.receiveShadow = true;
@@ -62,7 +64,7 @@ export async function createScene(renderer) {
   const minDistance = 175;
   const maxDistance = 500;
 
-  function createTree() {
+  async function createTree() {
     const r = minDistance + Math.random() * maxDistance;
     const theta = 2 * Math.PI * Math.random();
     const presets = Object.keys(TreePreset);
@@ -70,7 +72,7 @@ export async function createScene(renderer) {
 
     const t = new Tree();
     t.position.set(r * Math.cos(theta), 0, r * Math.sin(theta));
-    t.loadPreset(presets[index]);
+    await t.loadFromJson(TreePreset[presets[index]]);
     t.options.seed = 10000 * Math.random();
     t.generate();
     t.castShadow = true;
@@ -81,7 +83,7 @@ export async function createScene(renderer) {
 
   async function loadTrees(i) {
     while (i < treeCount) {
-      createTree();
+      await createTree();
 
       const progress = Math.floor(100 * (i + 1) / treeCount);
 

@@ -1,10 +1,11 @@
 import * as THREE from 'three';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 import { Pane } from 'tweakpane';
-import { BarkType, Billboard, LeafType, TreePreset, Tree, TreeType } from '@dkostenevich/ez-tree';
+import { BarkType, Billboard, LeafType, Tree, TreeType } from '@dkostenevich/ez-tree';
 import { Environment } from './environment';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 import { version } from '../../package.json';
+import { TreePreset } from './presets';
 
 const exporter = new GLTFExporter();
 let pane = null;
@@ -55,8 +56,8 @@ export function setupUI(tree, environment, renderer, scene, camera, controls, in
     label: 'preset',
     options: Object.keys(TreePreset).map(p => ({ text: p, value: p })),
     value: initialPreset
-  }).on('change', (e) => {
-    tree.loadPreset(e.value)
+  }).on('change', async (e) => {
+    await tree.loadFromJson(TreePreset[e.value])
     pane.refresh();
   });
 

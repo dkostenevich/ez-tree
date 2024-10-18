@@ -1,5 +1,5 @@
 {
-  "seed": 30895,
+  "seed": 35729,
   "type": "deciduous",
   "bark": {
     "type": "oak",
@@ -9,6 +9,12 @@
     "textureScale": {
       "x": 1,
       "y": 10
+    },
+    "assets": {
+      "ao": "/assets/bark/oak_ao_1k.jpg",
+      "color": "/assets/bark/oak_color_1k.jpg",
+      "normal": "/assets/bark/oak_normal_1k.jpg",
+      "roughness": "/assets/bark/oak_roughness_1k.jpg"
     }
   },
   "branch": {
@@ -19,8 +25,8 @@
       "3": 32
     },
     "children": {
-      "0": 4,
-      "1": 2,
+      "0": 6,
+      "1": 4,
       "2": 3
     },
     "force": {
@@ -32,27 +38,27 @@
       "strength": -0.01
     },
     "gnarliness": {
-      "0": 0.07,
-      "1": -0.08,
-      "2": 0.11,
+      "0": 0,
+      "1": -0.1,
+      "2": -0.15,
       "3": 0.09
     },
     "length": {
-      "0": 28.08,
-      "1": 4.55,
-      "2": 9.78,
+      "0": 37.24,
+      "1": 11.08,
+      "2": 12.39,
       "3": 7.16
     },
     "radius": {
-      "0": 1,
-      "1": 1.02,
+      "0": 1.41,
+      "1": 0.9,
       "2": 0.69,
       "3": 1.19
     },
     "sections": {
-      "0": 16,
-      "1": 9,
-      "2": 8,
+      "0": 8,
+      "1": 6,
+      "2": 3,
       "3": 1
     },
     "segments": {
@@ -83,11 +89,12 @@
     "type": "oak",
     "billboard": "double",
     "angle": 42,
-    "count": 14,
+    "count": 18,
     "start": 0.16,
-    "size": 1.38,
+    "size": 2.5,
     "sizeVariance": 0.7,
     "tint": 14013901,
-    "alphaTest": 0.5
+    "alphaTest": 0.5,
+    "asset": "/assets/leaves/oak_color.png"
   }
 }

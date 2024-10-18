@@ -3,8 +3,7 @@ import RNG from './rng';
 import { Branch } from './branch';
 import { Billboard, TreeType } from './enums';
 import TreeOptions from './options';
-import { loadPreset } from './presets/index';
-import { getBarkTexture, getLeafTexture } from './textures';
+import { getBarkTexture, getLeafTexture, loadBarkTextures, loadLeaveTextures } from './textures';
 
 export class Tree extends THREE.Group {
   /**
@@ -43,21 +42,20 @@ export class Tree extends THREE.Group {
   }
 
   /**
-   * Loads a preset tree from JSON 
-   * @param {string} preset 
-   */
-  loadPreset(name) {
-    const json = loadPreset(name);
-    this.loadFromJson(json);
-  }
-
-  /**
    * Loads a tree from JSON
    * @param {TreeOptions} json 
    */
-  loadFromJson(json) {
+  async loadFromJson(json) {
     this.options.copy(json);
+    await this.loadTextures();
     this.generate();
+  }
+
+  loadTextures() {
+    return Promise.all([
+      loadBarkTextures(this.options.bark.type, this.options.bark.assets),
+      loadLeaveTextures(this.options.leaves.type, this.options.leaves.asset)
+    ]);
   }
 
   /**
