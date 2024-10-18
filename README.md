@@ -35,7 +35,7 @@ tree.options.bark.assets.ao = '/assets/bark/oak_ao_1k.jpg';
 tree.options.bark.assets.color = '/assets/bark/oak_color_1k.jpg';
 tree.options.bark.assets.normal = '/assets/bark/oak_normal_1k.jpg';
 tree.options.bark.assets.roughness = '/assets/bark/oak_roughness_1k.jpg';
-tree.options.leaves.asset = '/assets/bark/ash_color.png';
+tree.options.leaves.asset = '/assets/leaves/ash_color.png';
 
 await tree.loadTextures(); // async function
 
