@@ -8,7 +8,7 @@ export default {
     outDir: './build',
     lib: {
       entry: './src/lib/index.js',
-      name: '@dgreenheck/ez-tree',
+      name: '@dkostenevich/ez-tree',
       fileName: (format) => `ez-tree.${format}.js`,
     },
     rollupOptions: {

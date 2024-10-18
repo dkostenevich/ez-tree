@@ -13,7 +13,7 @@ export default {
   root: './src/app',
   resolve: {
     alias: {
-      '@dgreenheck/ez-tree': path.resolve(
+      '@dkostenevich/ez-tree': path.resolve(
         __dirname,
         'build/ez-tree.es.js',
       ),

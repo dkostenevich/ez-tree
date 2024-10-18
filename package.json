@@ -1,15 +1,15 @@
 {
-  "name": "@dgreenheck/ez-tree",
-  "author": "Daniel Greenheck",
+  "name": "@dkostenevich/ez-tree",
+  "author": "Dmitry Kostenevich",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dgreenheck/ez-tree.git"
+    "url": "git+https://github.com/dkostenevich/ez-tree.git"
   },
-  "homepage": "https://dgreenheck.github.io/ez-tree/",
+  "homepage": "https://dkostenevich.github.io/ez-tree/",
   "bugs": {
-    "url": "https://github.com/dgreenheck/ez-tree/issues"
+    "url": "https://github.com/dkostenevich/ez-tree/issues"
   },
   "type": "module",
   "main": "build/ez-tree.umd.js",

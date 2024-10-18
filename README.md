@@ -1,10 +1,8 @@
 # EZ-Tree
 
-![NPM Version](https://img.shields.io/npm/v/%40dgreenheck%2Fez-tree)
-![NPM Downloads](https://img.shields.io/npm/dw/%40dgreenheck%2Fez-tree)
-![GitHub Repo stars](https://img.shields.io/github/stars/dgreenheck/ez-tree)
-![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/dangreenheck)
-![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCrdx_EU_Wx8_uBfqO0cI-9Q)
+![NPM Version](https://img.shields.io/npm/v/%40dkostenevich%2Fez-tree)
+![NPM Downloads](https://img.shields.io/npm/dw/%40dkostenevich%2Fez-tree)
+![GitHub Repo stars](https://img.shields.io/github/stars/dkostenevich/ez-tree)
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/cb5f5edd-3e1b-453d-925f-734965126b17">
@@ -19,7 +17,7 @@ https://eztree.dev
 # Installation
 
 ```js
-npm i @dgreenheck/ez-tree
+npm i @dkostenevich/ez-tree
 ```
 
 # Usage
