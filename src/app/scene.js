@@ -8,10 +8,6 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function paintUI() {
-  return new Promise(resolve => requestAnimationFrame(resolve));
-}
-
 /**
  * Creates a new instance of the Three.js scene
  * @param {THREE.WebGLRenderer} renderer 
@@ -90,9 +86,6 @@ export async function createScene(renderer) {
       // Update progress UI
       logoElement.style.clipPath = `inset(${100 - progress}% 0% 0% 0%)`;
       progressElement.innerText = `LOADING... ${progress}%`;
-
-      // Wait for the next animation frame to continue
-      await paintUI();
 
       i++;
     }

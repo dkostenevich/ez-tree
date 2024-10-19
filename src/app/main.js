@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     controls.update();
     composer.render();
-    requestAnimationFrame(animate);
+
+    setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, 1000 / 60);
   }
 
   function resize() {
