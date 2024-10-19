@@ -6,6 +6,8 @@ import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { setupUI } from './ui';
 import { createScene } from './scene';
 
+const frameRate = 1 / 60;
+
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('app')
 
@@ -36,19 +38,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   composer.addPass(new OutputPass());
 
   const clock = new THREE.Clock();
+  let delta = 0;
+
   function animate() {
     // Update time for wind sway shaders
-    const t = clock.getElapsedTime();
-    tree.update(t);
-    scene.getObjectByName('Forest').children.forEach((o) => o.update(t));
-    environment.update(t);
+    requestAnimationFrame(animate);
 
-    controls.update();
-    composer.render();
-
-    setTimeout(() => {
-      requestAnimationFrame(animate);
-    }, 1000 / 60);
+    delta += clock.getDelta();
+    if (delta > frameRate) {
+      const t = clock.getElapsedTime();
+      tree.update(t);
+      scene.getObjectByName('Forest').children.forEach((o) => o.update(t));
+      environment.update(t);
+      controls.update();
+      // The draw or time dependent code are here
+      composer.render();
+      delta = delta % frameRate;
+    }
   }
 
   function resize() {
