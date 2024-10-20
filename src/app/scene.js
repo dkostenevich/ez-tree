@@ -4,10 +4,6 @@ import { Tree } from '@dkostenevich/ez-tree';
 import { Environment } from './environment';
 import { TreePreset } from './presets';
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /**
  * Creates a new instance of the Three.js scene
  * @param {THREE.WebGLRenderer} renderer 
@@ -90,8 +86,6 @@ export async function createScene(renderer) {
       i++;
     }
 
-    // All trees are loaded, hide loading screen
-    await sleep(300);
     logoElement.style.clipPath = `inset(0% 0% 0% 0%)`;
     document.getElementById('loading-screen').style.display = 'none';
   }

@@ -5,6 +5,7 @@ import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { setupUI } from './ui';
 import { createScene } from './scene';
+import Stats from 'three/addons/libs/stats.module.js';
 
 const frameRate = 1 / 60;
 
@@ -24,7 +25,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderer.toneMappingExposure = 2;
   container.appendChild(renderer.domElement);
 
-  const { scene, environment, tree, camera, controls } = await createScene(renderer);
+  const stats = new Stats();
+  container.appendChild(stats.dom);
+
+  const { scene, environment, tree, camera, controls } =
+    await createScene(renderer);
 
   const composer = new EffectComposer(renderer);
 
@@ -54,6 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       // The draw or time dependent code are here
       composer.render();
       delta = delta % frameRate;
+      stats.update();
     }
   }
 
