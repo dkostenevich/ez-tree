@@ -1,41 +1,8 @@
 import * as THREE from 'three';
 import { degToRad } from 'three/src/math/MathUtils.js';
-import fragmentShader from './shaders/skybox.frag?raw';
-import vertexShader from './shaders/skybox.vert?raw';
-
-export class SkyboxOptions {
-  constructor() {
-    /**
-     * Azimuth of the sun in degrees
-     */
-    this.sunAzimuth = 90;
-
-    /**
-     * Elevation of the sun in degrees
-     */
-    this.sunElevation = 30;
-
-    /**
-     * Color of the sun
-     */
-    this.sunColor = new THREE.Color(0xffe5b0).convertLinearToSRGB();
-
-    /**
-     * Size of the sun in the sky
-     */
-    this.sunSize = 1;
-
-    /**
-     * Color of the sky in the lower part of the sky
-     */
-    this.skyColorLow = new THREE.Color(0x6fa2ef).convertLinearToSRGB();
-
-    /**
-     * Color of the sun in the higher part of the sky
-     */
-    this.skyColorHigh = new THREE.Color(0x2053ff).convertLinearToSRGB();
-  }
-}
+import fragmentShader from '../shaders/skybox.frag?raw';
+import vertexShader from '../shaders/skybox.vert?raw';
+import { SkyboxOptions } from '../skybox';
 
 /**
  * Configurable skybox with sun and built-in lighting
@@ -69,17 +36,9 @@ export class Skybox extends THREE.Mesh {
     });
 
     this.sun = new THREE.DirectionalLight();
-    this.sun.intensity = 5;
+    this.sun.intensity = 1;
     this.sun.color = options.sunColor;
     this.sun.position.set(50, 100, 50);
-    this.sun.castShadow = true;
-    this.sun.shadow.camera.left = -100;
-    this.sun.shadow.camera.right = 100;
-    this.sun.shadow.camera.top = 100;
-    this.sun.shadow.camera.bottom = -100;
-    this.sun.shadow.mapSize = new THREE.Vector2(512, 512);
-    this.sun.shadow.bias = -0.001;
-    this.sun.shadow.normalBias = 0.2;
     this.add(this.sun);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);

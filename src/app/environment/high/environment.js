@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { Skybox } from './skybox';
 import { Ground } from './ground';
-import { Grass } from './grass';
-import { Rocks } from './rocks';
-import { Clouds } from './clouds';
+import { Grass } from '../grass';
+import { Rocks } from '../rocks';
+import { Clouds } from '../clouds';
 
 export class Environment extends THREE.Object3D {
   constructor() {

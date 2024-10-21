@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GrassOptions } from './grass';
+import { GrassOptions } from '../grass';
 
 let loaded = false;
 let _grassTexture = null;
@@ -156,7 +156,7 @@ export class Ground extends THREE.Mesh {
 
       this.geometry = new THREE.PlaneGeometry(2000, 2000);
       this.rotation.x = -Math.PI / 2;
-      this.receiveShadow = true;
+      this.receiveShadow = true; 
     });
   }
 }
