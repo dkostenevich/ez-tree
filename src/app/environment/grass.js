@@ -170,7 +170,7 @@ export class Grass extends THREE.Object3D {
 
     let count = 0;
     for (let i = 0; i < this.options.maxInstanceCount; i++) {
-      const r = 10 + Math.random() * 500;
+      const r = 50 + Math.random() * 500;
       const theta = Math.random() * 2.0 * Math.PI;
 
       // Set position randomly

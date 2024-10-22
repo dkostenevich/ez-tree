@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import { Skybox } from './skybox';
 import { Grass, GrassOptions } from '../grass';
 import { RockOptions, Rocks } from '../rocks';
 import { Ground } from './ground';
+import { SkyboxOptions, Skybox } from '../skybox';
 
 export class Environment extends THREE.Object3D {
   constructor() {
@@ -19,6 +19,8 @@ export class Environment extends THREE.Object3D {
     this.ground = new Ground();
     this.add(this.ground);
 
+    const skyboxOptions = new SkyboxOptions();
+    skyboxOptions.castShadow = false;
     this.skybox = new Skybox();
     this.add(this.skybox);
 
