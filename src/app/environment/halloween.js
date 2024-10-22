@@ -12,6 +12,10 @@ let _graveMesh = null;
 let _cemetaryMesh = null;
 let _skeletonMesh = null;
 let _treeDeadMesh = null;
+let _bone1Mesh = null;
+let _bone2Mesh = null;
+let _bone3Mesh = null;
+let _bone4Mesh = null;
 
 /**
  *
@@ -28,7 +32,7 @@ async function fetchAssets() {
   );
   gltfLoader.setDRACOLoader(dracoLoader);
 
-  const [pumpkin1, scarecrowPumpkin, trickOrTreat, cat, ghost1, grave, cementary, skeleton, treeDead] = await Promise.all([
+  const [pumpkin1, scarecrowPumpkin, trickOrTreat, cat, ghost1, grave, cementary, skeleton, treeDead, bone1, bone2, bone3, bone4] = await Promise.all([
     gltfLoader.loadAsync('/assets/halloween/pumpkin1.glb'),
     gltfLoader.loadAsync('/assets/halloween/scarecrow-pumpkin.glb'),
     gltfLoader.loadAsync('/assets/halloween/trick-or-reat.glb'),
@@ -38,6 +42,10 @@ async function fetchAssets() {
     gltfLoader.loadAsync('/assets/halloween/cemetary.glb'),
     gltfLoader.loadAsync('/assets/halloween/skeleton.glb'),
     gltfLoader.loadAsync('/assets/halloween/tree-dead.glb'),
+    gltfLoader.loadAsync('/assets/halloween/bone1.glb'),
+    gltfLoader.loadAsync('/assets/halloween/bone2.glb'),
+    gltfLoader.loadAsync('/assets/halloween/bone3.glb'),
+    gltfLoader.loadAsync('/assets/halloween/bone4.glb'),
   ]);
 
   _pumpkin1Mesh = pumpkin1.scene;
@@ -49,6 +57,10 @@ async function fetchAssets() {
   _cemetaryMesh = cementary.scene;
   _skeletonMesh = skeleton.scene;
   _treeDeadMesh = treeDead.scene;
+  _bone1Mesh = bone1.scene;
+  _bone2Mesh = bone2.scene;
+  _bone3Mesh = bone3.scene;
+  _bone4Mesh = bone4.scene;
 
   loaded = true;
 }
@@ -68,10 +80,14 @@ export class Halloween extends THREE.Group {
       this.add(this.generateInstances(_pumpkin1Mesh, 50, { base: 30, min: 25, max: 35 }));
       this.add(this.generateScarecrowPumpkin(_scarecrowPumpkinMesh));
       this.add(this.generateTrickOrTreat(_trickOrTreatMesh));
-      this.add(this.generateInstances(_cemetaryMesh, 5, { base: 15, min: 15, max: 15 }, { y: 5 }));
-      this.add(this.generateInstances(_graveMesh, 10, { base: 5, min: 5, max: 5 }));
+      this.add(this.generateInstances(_cemetaryMesh, 5, { base: 15, min: 10, max: 17 }, { y: 5 }));
+      this.add(this.generateInstances(_graveMesh, 10, { base: 5, min: 3, max: 6 }));
       this.add(this.generateInstances(_ghost1Mesh, 5, { base: 15, min: 15, max: 15 }, { y: 20 }));
-      this.add(this.generateInstances(_treeDeadMesh, 15, { base: 4, min: 4, max: 4 }));
+      this.add(this.generateInstances(_treeDeadMesh, 15, { base: 4, min: 3, max: 6 }));
+      this.add(this.generateInstances(_bone1Mesh, 50, { base: 0.3, min: 0.2, max: 0.5 }, { y: 2 }));
+      this.add(this.generateInstances(_bone2Mesh, 50, { base: 10, min: 10, max: 10 }));
+      this.add(this.generateInstances(_bone3Mesh, 10, { base: 2, min: 1, max: 4 }));
+      this.add(this.generateInstances(_bone4Mesh, 15, { base: 10, min: 10, max: 10 }, { y: 2 }));
       this.add(this.generateCat(_catMesh));
     });
   }

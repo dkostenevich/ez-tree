@@ -12,7 +12,7 @@ async function fetchAssets() {
 
   const textureLoader = new THREE.TextureLoader();
 
-  _dirtTexture = await textureLoader.loadAsync('grass.jpg');
+  _dirtTexture = await textureLoader.loadAsync('ground.jpg');
   _dirtTexture.wrapS = THREE.RepeatWrapping;
   _dirtTexture.wrapT = THREE.RepeatWrapping;
   _dirtTexture.repeat.set(15, 15);
