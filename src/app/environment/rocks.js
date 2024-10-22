@@ -37,6 +37,8 @@ export class RockOptions {
    * Maximum variation in the rock size
    */
   sizeVariation = { x: 3, y: 3, z: 3 };
+
+  castShadow = true;
 }
 
 export class Rocks extends THREE.Group {
@@ -96,7 +98,7 @@ export class Rocks extends THREE.Group {
     // Ensure the transformation is updated in the GPU
     instancedMesh.instanceMatrix.needsUpdate = true;
 
-    instancedMesh.castShadow = true;
+    instancedMesh.castShadow = this.options.castShadow;
 
     return instancedMesh;
   }

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Tree } from '@dkostenevich/ez-tree';
-import { Environment } from './environment';
+import { Environment } from './environment/high/environment';
 import { TreePreset } from './presets';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';

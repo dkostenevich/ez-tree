@@ -1,25 +1,13 @@
 import * as THREE from 'three';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 import { Pane } from 'tweakpane';
-import { BarkType, Billboard, LeafType, Tree, TreeType } from '@dkostenevich/ez-tree';
-import { Environment } from './environment';
-import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import { BarkType, Billboard, LeafType, TreeType } from '@dkostenevich/ez-tree';
 import { version } from '../../package.json';
 import { TreePreset } from './presets';
 
 const exporter = new GLTFExporter();
 let pane = null;
 
-/**
- * Setups the UI
- * @param {Tree} tree
- * @param {Environment} environment
- * @param {THREE.WebGLRenderer} renderer
- * @param {THREE.Scene} scene
- * @param {THREE.Camera} camera
- * @param {OrbitControls} controls
- * @param {String} initialPreset
- */
 export function setupUI(tree, environment, renderer, scene, camera, controls, initialPreset) {
 
   // Remove old event listener and dispose old pane
@@ -161,7 +149,9 @@ export function setupUI(tree, environment, renderer, scene, camera, controls, in
 
   const environmentFolder = tab.pages[0].addFolder({ title: 'Environment', expanded: false });
   environmentFolder.addBinding(environment.skybox, 'sunAzimuth', { label: 'sunAngle', min: 0, max: 360 });
-  environmentFolder.addBinding(environment.grass, 'instanceCount', { label: 'grassCount', min: 0, max: 25000, step: 1 });
+  if (environment.grass.instanceCount) {
+    environmentFolder.addBinding(environment.grass, 'instanceCount', { label: 'grassCount', min: 0, max: 25000, step: 1 });
+  }
 
   /** INFO  */
 

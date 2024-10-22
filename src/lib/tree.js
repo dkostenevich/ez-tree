@@ -32,6 +32,8 @@ export class Tree extends THREE.Group {
     this.add(this.branchesMesh);
     this.add(this.leavesMesh);
     this.options = options;
+    this.castShadow = this.options.castShadow;
+    this.receiveShadow = this.options.receiveShadow;
   }
 
   update(elapsedTime) {
@@ -48,7 +50,6 @@ export class Tree extends THREE.Group {
   async loadFromJson(json) {
     this.options.copy(json);
     await this.loadTextures();
-    this.generate();
   }
 
   loadTextures() {
@@ -544,8 +545,8 @@ export class Tree extends THREE.Group {
     this.branchesMesh.geometry = g;
     this.branchesMesh.material.dispose();
     this.branchesMesh.material = mat;
-    this.branchesMesh.castShadow = true;
-    this.branchesMesh.receiveShadow = true;
+    this.branchesMesh.castShadow = this.options.castShadow;
+    this.branchesMesh.receiveShadow = this.options.receiveShadow;
   }
 
   /**
@@ -717,8 +718,8 @@ export class Tree extends THREE.Group {
 
     this.leavesMesh.material = mat;
 
-    this.leavesMesh.castShadow = true;
-    this.leavesMesh.receiveShadow = true;
+    this.leavesMesh.castShadow = this.options.castShadow;
+    this.leavesMesh.receiveShadow = this.options.receiveShadow;
   }
 
   get vertexCount() {

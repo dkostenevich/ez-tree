@@ -5,6 +5,10 @@ export class TreeOptions {
     this.seed = 0;
     this.type = TreeType.Deciduous;
 
+    // shadow
+    this.castShadow = true;
+    this.receiveShadow = true;
+
     // Bark parameters
     this.bark = {
       // The bark texture
