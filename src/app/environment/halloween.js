@@ -80,8 +80,8 @@ export class Halloween extends THREE.Group {
       this.add(this.generateInstances(_pumpkin1Mesh, 50, { base: 30, min: 25, max: 35 }));
       this.add(this.generateScarecrowPumpkin(_scarecrowPumpkinMesh));
       this.add(this.generateTrickOrTreat(_trickOrTreatMesh));
-      this.add(this.generateInstances(_cemetaryMesh, 5, { base: 15, min: 10, max: 17 }, { y: 5 }));
-      this.add(this.generateInstances(_graveMesh, 10, { base: 5, min: 3, max: 6 }));
+      this.add(this.generateInstances(_cemetaryMesh, 5, { base: 15, min: 15, max: 15 }, { y: 3 }));
+      this.add(this.generateInstances(_graveMesh, 10, { base: 5, min: 5, max: 5 }));
       this.add(this.generateInstances(_ghost1Mesh, 5, { base: 15, min: 15, max: 15 }, { y: 20 }));
       this.add(this.generateInstances(_treeDeadMesh, 15, { base: 4, min: 3, max: 6 }));
       this.add(this.generateInstances(_bone1Mesh, 50, { base: 0.3, min: 0.2, max: 0.5 }, { y: 2 }));
