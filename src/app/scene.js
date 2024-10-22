@@ -3,6 +3,8 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Tree } from '@dkostenevich/ez-tree';
 import { Environment } from './environment';
 import { TreePreset } from './presets';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
 /**
  * Creates a new instance of the Three.js scene
@@ -10,6 +12,9 @@ import { TreePreset } from './presets';
  * @returns 
  */
 export async function createScene(renderer) {
+  const loader = new FontLoader();
+  const font = await loader.loadAsync('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json');
+
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x94b9f8, 0.0015);
 
@@ -40,7 +45,11 @@ export async function createScene(renderer) {
   tree.generate();
   tree.castShadow = true;
   tree.receiveShadow = true;
+
+  addLabel(tree, getRandomName(), font);
+
   scene.add(tree);
+
 
   // Add a forest of trees in the background
   const forest = new THREE.Group();
@@ -70,7 +79,48 @@ export async function createScene(renderer) {
     t.castShadow = true;
     t.receiveShadow = true;
 
+    addLabel(t, getRandomName(), font);
+
     forest.add(t);
+  }
+
+  function getRandomName() {
+    const names = [
+      "John", "Jack", "Alice", "Bob", "Charlie", "David", "Eve", "Frank",
+      "Grace", "Hannah", "Ivy", "Jack", "Kathy", "Leo", "Mia", "Nick",
+      "Olivia", "Paul", "Quinn", "Rita", "Steve", "Tina", "Uma",
+      "Vera", "Will", "Xena", "Yara", "Zoe", "Aaron", "Bella", "Cody"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * names.length);
+    return names[randomIndex];
+  }
+
+  function addLabel(tree, labelText, font) {
+    const geometry = new TextGeometry(labelText, {
+      font: font,
+      size: 4,
+      depth: 1,
+      curveSegments: 4,
+      bevelEnabled: false,
+    });
+
+    geometry.computeBoundingBox();
+
+    const materials = [
+      new THREE.MeshPhongMaterial({ color: 0xf5e251, flatShading: true }), // front
+      new THREE.MeshPhongMaterial({ color: 0x000000 }) // side
+    ];
+
+    const textMesh = new THREE.Mesh(geometry, materials);
+    const centerOffset = - 0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+
+    textMesh.position.set(centerOffset, 5, 10);
+
+    textMesh.rotation.x = 0;
+    textMesh.rotation.y = Math.PI * 2;
+
+    tree.add(textMesh);
   }
 
   async function loadTrees(i) {
