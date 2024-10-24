@@ -13,7 +13,7 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
  */
 export async function createScene(renderer) {
   const loader = new FontLoader();
-  const font = await loader.loadAsync('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json');
+  const font = await loader.loadAsync('/fonts/roboto-regular.json');
 
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x94b9f8, 0.0015);
