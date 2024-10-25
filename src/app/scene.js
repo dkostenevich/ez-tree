@@ -64,14 +64,26 @@ export async function createScene(renderer) {
   const minDistance = 175;
   const maxDistance = 500;
 
-  async function createTree() {
+  function getRandomPosition() {
     const r = minDistance + Math.random() * maxDistance;
     const theta = 2 * Math.PI * Math.random();
+    return new THREE.Vector3(r * Math.cos(theta), 0, r * Math.sin(theta));
+  }
+
+  async function createTree() {
+    const minRadius = 70;
     const presets = Object.keys(TreePreset);
     const index = Math.floor(Math.random() * presets.length);
 
     const t = new Tree();
-    t.position.set(r * Math.cos(theta), 0, r * Math.sin(theta));
+    let randomPosition = null;
+    let isValid = false; 
+    while (!isValid) {
+      randomPosition = getRandomPosition();
+      isValid = !forest.children.some(c => c.position.distanceTo(randomPosition) <= minRadius);
+    }
+
+    t.position.set(randomPosition.x, randomPosition.y, randomPosition.z);
     await t.loadFromJson(TreePreset[presets[index]]);
     t.options.seed = 10000 * Math.random();
     t.generate();
