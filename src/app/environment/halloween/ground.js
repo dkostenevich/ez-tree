@@ -25,7 +25,6 @@ export class Ground extends THREE.Mesh {
   constructor() {
     super();
 
-
     fetchAssets().then(() => {
       var floorMaterial = new THREE.MeshBasicMaterial({ map: _dirtTexture, side: THREE.FrontSide });
       var floorGeometry = new THREE.PlaneGeometry(2000, 2000);

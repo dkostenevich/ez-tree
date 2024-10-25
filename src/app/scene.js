@@ -50,7 +50,6 @@ export async function createScene(renderer) {
 
   scene.add(tree);
 
-
   // Add a forest of trees in the background
   const forest = new THREE.Group();
   forest.name = 'Forest';
