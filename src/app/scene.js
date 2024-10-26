@@ -71,16 +71,24 @@ export async function createScene(renderer) {
   }
 
   async function createTree() {
-    const minRadius = 70;
+    const maxIterations = 100;
     const presets = Object.keys(TreePreset);
     const index = Math.floor(Math.random() * presets.length);
 
     const t = new Tree();
     let randomPosition = null;
     let isValid = false; 
+    let iteration = 0
+    let minDistance = 150;
+
     while (!isValid) {
       randomPosition = getRandomPosition();
-      isValid = !forest.children.some(c => c.position.distanceTo(randomPosition) <= minRadius);
+      isValid = !forest.children.some(c => c.position.distanceTo(randomPosition) <= minDistance);
+      iteration++;
+      if (iteration >= maxIterations) {
+        minDistance -= 5;
+        iteration = 0;
+      }
     }
 
     t.position.set(randomPosition.x, randomPosition.y, randomPosition.z);
